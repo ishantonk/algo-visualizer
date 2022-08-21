@@ -1,4 +1,4 @@
-import { swap } from "./swap";
+import { swap } from "../../utils/utils";
 
 export function getSelectionSortAnimations(array = []) {
   const animations = [];
@@ -20,4 +20,4 @@ export function getSelectionSortAnimations(array = []) {
     currentIdx++;
   }
   return animations;
-}
+};

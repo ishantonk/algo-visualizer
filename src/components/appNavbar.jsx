@@ -1,83 +1,49 @@
 import { useState, useEffect } from "react";
-import {
-  Navbar,
-  MobileNav,
-  Typography,
-  Button,
-  IconButton,
-} from "@material-tailwind/react";
- 
+import { Navbar, MobileNav, Typography, Button, IconButton } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
+import { algoTypeList } from "../utils/utils";
+
 export default function AppNavbar() {
   const [openNav, setOpenNav] = useState(false);
- 
+
   useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
   }, []);
- 
+
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-normal"
-      >
-        <a href="#" className="flex items-center">
-          Pages
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-normal"
-      >
-        <a href="#" className="flex items-center">
-          Account
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-normal"
-      >
-        <a href="#" className="flex items-center">
-          Blocks
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-normal"
-      >
-        <a href="#" className="flex items-center">
-          Docs
-        </a>
-      </Typography>
+      {algoTypeList.map((algoType, index) => (
+        <Typography key={index} as="li" variant="small" color="blue-gray" className="p-1 font-normal text-gray-600 hover:text-gray-800">
+          <Link to={algoType.link}>
+            {algoType.title}
+          </Link>
+        </Typography>
+      ))}
     </ul>
   );
- 
+
   return (
     <Navbar className="mx-auto py-2 px-4 lg:px-8 lg:py-4">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
-        <Typography
-          as="a"
-          href="#"
-          variant="small"
-          className="mr-4 cursor-pointer py-1.5 font-normal"
-        >
-          <span>Algorithm Visualizer</span>
-        </Typography>
+        <Link to={'/'} className="flex items-center">
+          <Typography as="h1" variant="h1" className="mr-4 cursor-pointer py-1.5 text-2xl font-bold">
+            <span className="text-xl mx-1">
+              Algorithm
+            </span>
+            <span className="text-gray-600 font-normal">
+              Visualizer
+            </span>
+          </Typography>
+        </Link>
         <div className="hidden lg:block">{navList}</div>
-        <Button variant="gradient" size="sm" className="hidden lg:inline-block">
-          <span>Source code</span>
-        </Button>
-
+        <a href="https://github.com/ishantonk/algo-visualizer" target="_blank" rel="noreferrer">
+          <Button variant="gradient" size="sm" className="hidden lg:inline-block">
+            <span>Source code</span>
+          </Button>
+        </a>
         {/* For mobile */}
         <IconButton
           variant="text"
@@ -119,9 +85,11 @@ export default function AppNavbar() {
       </div>
       <MobileNav open={openNav}>
         {navList}
-        <Button variant="gradient" size="sm" fullWidth className="mb-2">
-          <span>Source code</span>
-        </Button>
+        <a href="https://github.com/ishantonk/algo-visualizer" target="_blank" rel="noreferrer">
+          <Button variant="gradient" size="sm" fullWidth className="mb-2">
+            <span>Source code</span>
+          </Button>
+        </a>
       </MobileNav>
     </Navbar>
   );

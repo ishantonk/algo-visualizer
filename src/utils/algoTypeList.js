@@ -1,6 +1,8 @@
+import { sortingThumb, pathfindingThumb, searchingThumb } from '../assets/index';
+
 const algoTypes = [
     {
-        image: '',
+        image: sortingThumb,
         title: 'Sorting Algorithms',
         link: '/sorting',
         subAlgoList: [
@@ -23,7 +25,7 @@ const algoTypes = [
         ]
     },
     {
-        image: '',
+        image: searchingThumb,
         title: 'Searching Algorithms',
         link: '/searching',
         subAlgoList: [
@@ -38,9 +40,9 @@ const algoTypes = [
         ]
     },
     {
-        image: '',
+        image: pathfindingThumb,
         title: 'Path-Finder Algorithms',
-        link: '/pathFinder',
+        link: '/pathfinding',
         subAlgoList: [
             {
                 title: 'Dijkstra',

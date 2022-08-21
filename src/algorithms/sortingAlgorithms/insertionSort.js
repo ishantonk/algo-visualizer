@@ -1,4 +1,4 @@
-import { swap } from "./swap";
+import { swap } from "../../utils/utils";
 
 export function getInsertionSortAnimations(array = []) {
   const animations = [];

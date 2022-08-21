@@ -1,4 +1,4 @@
-import { swap } from "./swap";
+import { swap } from "../../utils/utils";
 
 function quickSortHelper(array = [], left, right, animations = []) {
   let pivot = array[Math.floor((right + left) / 2)],

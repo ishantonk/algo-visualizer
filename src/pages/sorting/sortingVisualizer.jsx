@@ -211,18 +211,16 @@ class SortingVisualizer extends Component {
                             <div className="array-board grid p-3 rounded bg-gray-100 border border-gray-400 shadowT" id="array-board"></div>
                         </div>
                     </div>
-                    <div className="col-span-5 p-2">
+                    <div className="col-span-5 flex flex-col items-center gap-10 mt-2">
                         <div className="array-controls flex justify-center gap-x-4">
                             <div className="array-controls-row">
-                                <Select label="Select an algorithm" animate={{
-                                    mount: { y: 0 },
-                                    unmount: { y: 25 },
-                                }}
+                                <Select
+                                    label="Select an algorithm" animate={{ mount: { y: 0 }, unmount: { y: 25 } }}
                                     id="selectedAlgorithm"
                                     defaultValue='default'
                                     onChange={this.handelChangeAlgo}
                                 >
-                                    <Option  value="bubbleSort">Bubble Sort</Option>
+                                    <Option value="bubbleSort">Bubble Sort</Option>
                                     <Option value="selectionSort">Selection Sort</Option>
                                     <Option value="insertionSort">Insertion Sort</Option>
                                     <Option value="quickSort">Quick Sort</Option>

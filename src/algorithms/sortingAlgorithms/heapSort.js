@@ -1,4 +1,4 @@
-import { swap } from "./swap";
+import { swap } from "../../utils/utils";
 
 function buildMaxHeap(array = [], animations = []) {
   let i;
